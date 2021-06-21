@@ -499,22 +499,22 @@ prints()
     if [ "${QUIET}" != "TRUE" ] && [ "${ISSUER}" = "TRUE" ] && [ "${VALIDATION}" != "TRUE" ]; then
         MIN_DATE=$(echo "$4" | "${AWK}" '{ printf "%3s %2d %4d", $1, $2, $4 }')
         if [ "${NAGIOS}" = "TRUE" ]; then
-            ${PRINTF} "%-35s %-17s %-8s %-11s %s\n" "$1:$2" "$6" "$3" "$MIN_DATE" "|days=$5"
+            ${PRINTF} "%-35s %-17s %-8s %-11s %s\n" "$1" "$6" "$3" "$MIN_DATE" "|days=$5"
         else
-            ${PRINTF} "%-35s %-17s %-8s %-11s %4d\n" "$1:$2" "$6" "$3" "$MIN_DATE" "$5"
+            ${PRINTF} "%-35s %-17s %-8s %-11s %4d\n" "$1" "$6" "$3" "$MIN_DATE" "$5"
         fi
     elif [ "${QUIET}" != "TRUE" ] && [ "${ISSUER}" = "TRUE" ] && [ "${VALIDATION}" = "TRUE" ]; then
-        ${PRINTF} "%-35s %-35s %-32s %-17s\n" "$1:$2" "$7" "$8" "$6"
+        ${PRINTF} "%-35s %-35s %-32s %-17s\n" "$1" "$7" "$8" "$6"
 
     elif [ "${QUIET}" != "TRUE" ] && [ "${VALIDATION}" != "TRUE" ]; then
         MIN_DATE=$(echo "$4" | "${AWK}" '{ printf "%3s %2d, %4d", $1, $2, $4 }')
         if [ "${NAGIOS}" = "TRUE" ]; then
-            ${PRINTF} "%-47s %-12s %-12s %s\n" "$1:$2" "$3" "$MIN_DATE" "|days=$5"
+            ${PRINTF} "%-47s %-12s %-12s %s\n" "$1" "$3" "$MIN_DATE" "|days=$5"
         else
-            ${PRINTF} "%-47s %-12s %-12s %4d\n" "$1:$2" "$3" "$MIN_DATE" "$5"
+            ${PRINTF} "%-47s %-12s %-12s %4d\n" "$1" "$3" "$MIN_DATE" "$5"
         fi
     elif [ "${QUIET}" != "TRUE" ] && [ "${VALIDATION}" = "TRUE" ]; then
-        ${PRINTF} "%-35s %-35s %-32s\n" "$1:$2" "$7" "$8"
+        ${PRINTF} "%-35s %-35s %-32s\n" "$1" "$7" "$8"
     fi
 }
 
